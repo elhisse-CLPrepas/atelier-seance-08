@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Affiche — Préparation de la séance 08</title>
+  <style>
+    :root {
+      --bleu-nuit: #172554;
+      --bleu: #2563eb;
+      --cyan: #06b6d4;
+      --vert: #16a34a;
+      --orange: #f97316;
+      --violet: #7c3aed;
+      --fond: #f8fafc;
+      --texte: #0f172a;
+      --gris: #475569;
+      --blanc: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #dbeafe 0%, #f8fafc 45%, #ecfeff 100%);
+      color: var(--texte);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .poster {
+      width: min(1120px, calc(100% - 32px));
+      margin: 24px auto;
+      padding: 40px;
+      background: var(--fond);
+      border: 8px solid var(--blanc);
+      border-radius: 32px;
+      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .poster::before,
+    .poster::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      opacity: 0.16;
+      pointer-events: none;
+    }
+
+    .poster::before {
+      width: 360px;
+      height: 360px;
+      right: -140px;
+      top: -130px;
+      background: var(--cyan);
+    }
+
+    .poster::after {
+      width: 280px;
+      height: 280px;
+      left: -120px;
+      bottom: -120px;
+      background: var(--violet);
+    }
+
+    header {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 14px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: var(--bleu-nuit);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 780px;
+      color: var(--bleu-nuit);
+      font-size: clamp(44px, 6vw, 78px);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: var(--gris);
+      font-size: 26px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .badge {
+      min-width: 190px;
+      padding: 22px;
+      border-radius: 28px;
+      background: var(--bleu-nuit);
+      color: var(--blanc);
+      text-align: center;
+      box-shadow: 0 14px 35px rgba(23, 37, 84, 0.28);
+    }
+
+    .badge strong {
+      display: block;
+      font-size: 62px;
+      line-height: 0.9;
+    }
+
+    .badge span {
+      display: block;
+      margin-top: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-bottom: 26px;
+    }
+
+    .panel {
+      padding: 26px;
+      border-radius: 28px;
+      background: var(--blanc);
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.10);
+    }
+
+    .panel h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 18px;
+      color: var(--bleu-nuit);
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .number {
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: var(--bleu);
+      color: var(--blanc);
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 13px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      color: var(--texte);
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 11px;
+      background: #dcfce7;
+      color: var(--vert);
+      font-weight: 900;
+    }
+
+    .formats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .formats li {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #eef2ff;
+      color: var(--bleu-nuit);
+      font-size: 18px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .flow {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 14px;
+      align-items: stretch;
+      margin-bottom: 26px;
+    }
+
+    .step {
+      min-height: 150px;
+      padding: 22px;
+      border-radius: 26px;
+      color: var(--blanc);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .step:nth-child(1) { background: var(--bleu); }
+    .step:nth-child(3) { background: var(--violet); }
+    .step:nth-child(5) { background: var(--orange); }
+
+    .step strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .step span {
+      display: block;
+      margin-top: 12px;
+      font-size: 20px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .arrow {
+      display: grid;
+      place-items: center;
+      color: var(--bleu-nuit);
+      font-size: 42px;
+      font-weight: 900;
+    }
+
+    .callout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      align-items: center;
+      padding: 24px 28px;
+      border-radius: 28px;
+      background: var(--bleu-nuit);
+      color: var(--blanc);
+    }
+
+    .callout .icon {
+      display: grid;
+      place-items: center;
+      width: 78px;
+      height: 78px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.14);
+      font-size: 44px;
+    }
+
+    .callout p {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.18;
+      font-weight: 900;
+    }
+
+    .footer {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 20px;
+      color: var(--gris);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    @media print {
+      body {
+        background: var(--blanc);
+      }
+
+      .poster {
+        width: 100%;
+        min-height: 100vh;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        page-break-inside: avoid;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .poster {
+        padding: 24px;
+      }
+
+      header,
+      .hero,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .badge {
+        width: 100%;
+      }
+
+      .arrow {
+        transform: rotate(90deg);
+      }
+
+      .formats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster" aria-label="Affiche de préparation à la séance 08">
+    <header>
+      <div>
+        <p class="eyebrow">Module 02 · Travail interséance</p>
+        <h1>Préparer la séance 08</h1>
+        <p class="subtitle">Transformer le brouillon de la séance 07 en livrable clair, présentable et utile.</p>
+      </div>
+      <aside class="badge" aria-label="Séance 08">
+        <strong>08</strong>
+        <span>Séance</span>
+      </aside>
+    </header>
+
+    <section class="flow" aria-label="Progression attendue">
+      <div class="step">
+        <strong>1. Nettoyer</strong>
+        <span>Relire, supprimer les doublons et clarifier les formulations.</span>
+      </div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="step">
+        <strong>2. Compléter</strong>
+        <span>Ajouter les parties manquantes et adapter au public cible.</span>
+      </div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="step">
+        <strong>3. Présenter</strong>
+        <span>Préparer une démonstration courte et deux questions de feedback.</span>
+      </div>
+    </section>
+
+    <section class="hero">
+      <article class="panel">
+        <h2><span class="number">A</span>Actions obligatoires</h2>
+        <ul class="checklist">
+          <li>Relire et nettoyer sa production.</li>
+          <li>Supprimer les doublons et les éléments inutiles.</li>
+          <li>Compléter les parties manquantes.</li>
+          <li>Reformuler les passages trop génériques.</li>
+          <li>Préparer une courte présentation orale.</li>
+          <li>Noter les difficultés rencontrées.</li>
+          <li>Préparer au moins deux demandes de feedback.</li>
+        </ul>
+      </article>
+
+      <article class="panel">
+        <h2><span class="number">B</span>Formats possibles</h2>
+        <ul class="formats">
+          <li>Document structuré</li>
+          <li>Fiche projet</li>
+          <li>Guide d’utilisation</li>
+          <li>Support de présentation</li>
+          <li>Prototype</li>
+          <li>Page web</li>
+          <li>Script ou workflow</li>
+          <li>Démonstration courte</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="callout">
+      <div class="icon" aria-hidden="true">🎯</div>
+      <p>Objectif : arriver en séance 08 avec un livrable compréhensible par une personne extérieure au projet.</p>
+    </section>
+
+    <footer class="footer">
+      <span>À apporter : fichier, lien ou support de démonstration.</span>
+      <span>À préparer : 5 minutes de présentation maximum.</span>
+    </footer>
+  </main>
+</body>
+</html>
