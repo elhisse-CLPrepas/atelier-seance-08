@@ -8,6 +8,7 @@ Ce dépôt regroupe les supports de la séance 08 autour de la structuration de 
 - `support-seance-08-prompt-structure-candidat.html` : support interactif complet.
 - `support-seance-08-prompt-structure-candidat.md` : version Markdown du support.
 - `affiche-preparation-seance-08.html` et `affiche-preparation-seance-08.pdf` : affiche de préparation.
+- `prompts/` : prompts extraits et scénario de secours si aucun candidat volontaire ne propose de livrable.
 - `collecte-reponses-candidats/` : module PHP optionnel pour centraliser les réponses candidat sur un hébergement cPanel.
 - `README-deploiement-github-pages.md` : consignes détaillées de publication.
 
