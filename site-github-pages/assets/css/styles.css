@@ -1,0 +1,201 @@
+:root {
+      --ctm-blue-dark: #172554;
+      --ctm-blue: #2563eb;
+      --ctm-cyan: #06b6d4;
+      --ctm-green: #16a34a;
+      --ctm-orange: #f97316;
+      --ctm-purple: #7c3aed;
+      --ctm-light: #f8fafc;
+      --ctm-text: #0f172a;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(6, 182, 212, 0.16), transparent 30rem),
+        var(--ctm-light);
+      color: var(--ctm-text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--ctm-blue-dark), #1d4ed8 58%, var(--ctm-cyan));
+      color: white;
+      border-radius: 0 0 2rem 2rem;
+      box-shadow: 0 1.5rem 4rem rgba(15, 23, 42, 0.22);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.95rem;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.13);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .glass-card {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 1.25rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .sticky-nav {
+      position: sticky;
+      top: 1rem;
+      z-index: 20;
+    }
+
+    .section-card {
+      border: 0;
+      border-radius: 1.5rem;
+      box-shadow: 0 1rem 2.5rem rgba(15, 23, 42, 0.09);
+      overflow: hidden;
+    }
+
+    .section-card .card-header {
+      border: 0;
+      background: white;
+      padding: 1.25rem 1.5rem 0;
+    }
+
+    .section-kicker {
+      color: var(--ctm-blue);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .step-number {
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.8rem;
+      background: var(--ctm-blue);
+      color: white;
+      font-weight: 900;
+    }
+
+    .prompt-box {
+      position: relative;
+      border: 1px solid #dbeafe;
+      border-radius: 1rem;
+      background: #0f172a;
+      overflow: hidden;
+    }
+
+    .prompt-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.85rem 1rem;
+      background: #172554;
+      color: white;
+    }
+
+    pre {
+      margin: 0;
+      padding: 1.25rem;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .copy-btn {
+      border: 0;
+      border-radius: 999px;
+      background: white;
+      color: var(--ctm-blue-dark);
+      font-weight: 800;
+      padding: 0.45rem 0.9rem;
+    }
+
+    .copy-btn:hover,
+    .copy-btn:focus {
+      background: #dbeafe;
+      color: var(--ctm-blue-dark);
+    }
+
+    .link-card {
+      border: 1px solid #dbeafe;
+      border-radius: 1rem;
+      background: #ffffff;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .link-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba(37, 99, 235, 0.12);
+    }
+
+    .checklist li {
+      margin-bottom: 0.65rem;
+    }
+
+    .footer-cta {
+      background: var(--ctm-blue-dark);
+      color: white;
+      border-radius: 1.5rem;
+    }
+
+    .contribution-panel {
+      border: 2px solid rgba(37, 99, 235, 0.14);
+      background: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%);
+    }
+
+    .architecture-list li {
+      padding: 0.85rem 1rem;
+      border: 1px solid #dbeafe;
+      border-radius: 0.9rem;
+      background: white;
+      margin-bottom: 0.75rem;
+    }
+
+    .summary-preview {
+      min-height: 12rem;
+      border: 1px dashed #93c5fd;
+      border-radius: 1rem;
+      background: #ffffff;
+      white-space: pre-wrap;
+    }
+
+    .submission-card {
+      border-left: 0.35rem solid var(--ctm-green);
+      background: #f0fdf4;
+    }
+
+    @media print {
+      .sticky-nav,
+      .copy-btn,
+      .toast-container,
+      .btn {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+      }
+
+      .hero,
+      .section-card,
+      .footer-cta {
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      pre {
+        color: #111827;
+        background: white;
+        border: 1px solid #cbd5e1;
+      }
+    }

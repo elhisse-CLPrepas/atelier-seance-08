@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Contribution candidat séance 08",
+  "type": "object",
+  "required": [
+    "candidateName",
+    "candidateEmail",
+    "projectTitle",
+    "projectType",
+    "projectNeed",
+    "projectSummary",
+    "feedbackAsk"
+  ],
+  "properties": {
+    "candidateName": { "type": "string", "minLength": 2 },
+    "candidateEmail": { "type": "string", "format": "email" },
+    "projectTitle": { "type": "string", "minLength": 3 },
+    "projectType": { "type": "string" },
+    "projectNeed": { "type": "string" },
+    "projectSummary": { "type": "string" },
+    "projectLink": { "type": "string" },
+    "feedbackAsk": { "type": "string" },
+    "submittedAt": { "type": "string", "format": "date-time" },
+    "source": { "type": "string" }
+  }
+}

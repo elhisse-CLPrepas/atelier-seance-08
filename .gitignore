@@ -1,0 +1,11 @@
+# Fichiers de configuration locale et secrets de collecte
+collecte-reponses-candidats/api/config.php
+
+# Données générées par le formulaire candidat
+collecte-reponses-candidats/api/data/*.jsonl
+
+# Fichiers temporaires système / éditeurs
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
