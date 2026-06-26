@@ -21,6 +21,10 @@
 <body>
   <header class="hero py-5 mb-5">
     <div class="container py-lg-4">
+      <div class="brand-strip mb-4">
+        <img class="brand-logo" src="assets/img/logo-LN-IA.png" alt="LN-IA">
+        <span class="brand-label">Challenge IA · LN-IA</span>
+      </div>
       <div class="row align-items-center g-4">
         <div class="col-lg-8">
           <span class="hero-badge mb-3">Module 02 · Séance 08 · Atelier IA</span>
@@ -43,6 +47,48 @@
   </header>
 
   <main class="container pb-5">
+    <section class="progress-dashboard mb-4" aria-labelledby="progress-title">
+      <div class="row g-3 align-items-stretch">
+        <div class="col-lg-4">
+          <div class="progress-panel h-100">
+            <p class="section-kicker mb-1">Indicateur d'avancement</p>
+            <h2 id="progress-title" class="h4 fw-bold mb-3">Préparation séance 08</h2>
+            <div class="d-flex align-items-center justify-content-between gap-3 mb-2">
+              <span class="fw-bold" id="progressLabel">0 / 10 points validés</span>
+              <span class="progress-percent" id="progressPercent">0%</span>
+            </div>
+            <div class="progress" role="progressbar" aria-label="Progression checklist" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="milestone-grid h-100">
+            <div class="milestone-card is-active">
+              <span>1</span>
+              <strong>Préparer</strong>
+              <small>rassembler le brouillon et le besoin</small>
+            </div>
+            <div class="milestone-card">
+              <span>2</span>
+              <strong>Structurer</strong>
+              <small>utiliser le prompt maître</small>
+            </div>
+            <div class="milestone-card">
+              <span>3</span>
+              <strong>Vérifier</strong>
+              <small>contrôler les informations et limites</small>
+            </div>
+            <div class="milestone-card">
+              <span>4</span>
+              <strong>Partager</strong>
+              <small>préparer le résumé et le renvoi email</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="row g-4">
       <aside class="col-lg-3">
         <nav class="sticky-nav card section-card p-3" aria-label="Navigation du support">
@@ -113,6 +159,14 @@
             <div class="card-body p-4">
               <h3 class="h4 fw-bold">Prompt principal — structurer le livrable</h3>
               <p class="text-secondary">À utiliser pour obtenir une analyse complète, une structure améliorée et un plan de présentation.</p>
+              <div class="master-prompt-guide mb-3" aria-label="Repères du prompt maître">
+                <div><span>Contexte</span><strong>Ce que je suis en train de préparer</strong></div>
+                <div><span>Public cible</span><strong>Pour qui le livrable est utile</strong></div>
+                <div><span>Besoin traité</span><strong>Le problème ou objectif prioritaire</strong></div>
+                <div><span>Brouillon</span><strong>La matière réelle à améliorer</strong></div>
+                <div><span>Sorties attendues</span><strong>Structure, feedback, présentation</strong></div>
+                <div><span>Contrôle qualité</span><strong>Pas d'invention, points à vérifier</strong></div>
+              </div>
               <div class="prompt-box">
                 <div class="prompt-toolbar"><span>Prompt principal</span><button class="copy-btn" data-copy-target="prompt-principal">Copier</button></div>
                 <pre id="prompt-principal">Tu es mon assistant pédagogique pour préparer la séance 08.
@@ -239,16 +293,16 @@ Les questions doivent m’aider à vérifier :
           </div>
           <div class="card-body p-4">
             <ul class="checklist list-unstyled row g-2">
-              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox"> mon livrable a un titre clair ;</li>
-              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox"> le besoin traité est compréhensible ;</li>
-              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox"> le public cible est identifié ;</li>
-              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox"> les doublons ont été supprimés ;</li>
-              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox"> les formulations vagues ont été reformulées ;</li>
-              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox"> les informations importantes ont été vérifiées ;</li>
-              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox"> les limites ou incertitudes sont indiquées ;</li>
-              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox"> je peux présenter mon travail en moins de 5 minutes ;</li>
-              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox"> j’ai préparé au moins 2 questions de feedback ;</li>
-              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox"> je sais expliquer ce que l’IA m’a apporté et ce que j’ai retravaillé moi-même.</li>
+              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox" data-progress-check> mon livrable a un titre clair ;</li>
+              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox" data-progress-check> le besoin traité est compréhensible ;</li>
+              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox" data-progress-check> le public cible est identifié ;</li>
+              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox" data-progress-check> les doublons ont été supprimés ;</li>
+              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox" data-progress-check> les formulations vagues ont été reformulées ;</li>
+              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox" data-progress-check> les informations importantes ont été vérifiées ;</li>
+              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox" data-progress-check> les limites ou incertitudes sont indiquées ;</li>
+              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox" data-progress-check> je peux présenter mon travail en moins de 5 minutes ;</li>
+              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox" data-progress-check> j’ai préparé au moins 2 questions de feedback ;</li>
+              <li class="col-md-6"><input class="form-check-input me-2" type="checkbox" data-progress-check> je sais expliquer ce que l’IA m’a apporté et ce que j’ai retravaillé moi-même.</li>
             </ul>
           </div>
         </section>
