@@ -183,6 +183,41 @@
       font-weight: 900;
     }
 
+    .poster-section {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .poster-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(15rem, 0.65fr);
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .poster-frame {
+      display: grid;
+      place-items: center;
+      border: 1px solid #dbeafe;
+      border-radius: 1rem;
+      background: #ffffff;
+      padding: 0.75rem;
+      overflow: hidden;
+    }
+
+    .poster-frame img {
+      display: block;
+      width: 100%;
+      max-height: 24rem;
+      object-fit: contain;
+    }
+
+    .poster-notes {
+      border-left: 0.35rem solid var(--ctm-blue);
+      background: #eff6ff;
+      border-radius: 0.9rem;
+      padding: 1rem;
+    }
+
     .prompt-box {
       position: relative;
       border: 1px solid #dbeafe;
@@ -338,9 +373,14 @@
     }
 
     @media (max-width: 991.98px) {
+      .poster-layout,
       .milestone-grid,
       .master-prompt-guide {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
+      }
+
+      .poster-frame img {
+        max-height: 20rem;
       }
     }
 
