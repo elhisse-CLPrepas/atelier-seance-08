@@ -1,5 +1,5 @@
 const toastElement = document.getElementById('copyToast');
-    const toast = bootstrap.Toast.getOrCreateInstance(toastElement);
+    const toast = window.bootstrap && toastElement ? bootstrap.Toast.getOrCreateInstance(toastElement) : null;
     const contributionKey = 'seance08Contributions';
     const contributionForm = document.getElementById('contributionForm');
     const contributionPreview = document.getElementById('contributionPreview');
@@ -7,10 +7,17 @@ const toastElement = document.getElementById('copyToast');
     const sendContribution = document.getElementById('sendContribution');
     const copyContribution = document.getElementById('copyContribution');
     const clearContributions = document.getElementById('clearContributions');
+    const progressChecks = document.querySelectorAll('[data-progress-check]');
+    const progressLabel = document.getElementById('progressLabel');
+    const progressPercent = document.getElementById('progressPercent');
+    const progressBar = document.getElementById('progressBar');
 
     function showToast(message = 'Prompt copié dans le presse-papiers.') {
+      if (!toastElement) return;
       toastElement.querySelector('.toast-body').innerText = message;
-      toast.show();
+      if (toast) {
+        toast.show();
+      }
     }
 
     function fallbackCopy(text, message) {
@@ -47,6 +54,19 @@ const toastElement = document.getElementById('copyToast');
 
     function saveContributions(contributions) {
       localStorage.setItem(contributionKey, JSON.stringify(contributions));
+    }
+
+    function updateProgress() {
+      const total = progressChecks.length;
+      const completed = Array.from(progressChecks).filter((check) => check.checked).length;
+      const percent = total ? Math.round((completed / total) * 100) : 0;
+
+      if (progressLabel) progressLabel.innerText = `${completed} / ${total} points validés`;
+      if (progressPercent) progressPercent.innerText = `${percent}%`;
+      if (progressBar) {
+        progressBar.style.width = `${percent}%`;
+        progressBar.parentElement.setAttribute('aria-valuenow', String(percent));
+      }
     }
 
     function escapeHtml(value) {
@@ -99,6 +119,10 @@ Prochaine action proposée : présenter cette contribution pendant l’atelier e
       button.addEventListener('click', () => copyPrompt(button.dataset.copyTarget));
     });
 
+    progressChecks.forEach((check) => {
+      check.addEventListener('change', updateProgress);
+    });
+
     contributionForm.addEventListener('submit', (event) => {
       event.preventDefault();
       const data = Object.fromEntries(new FormData(contributionForm).entries());
@@ -131,3 +155,4 @@ Prochaine action proposée : présenter cette contribution pendant l’atelier e
     });
 
     updateContributionList();
+    updateProgress();
