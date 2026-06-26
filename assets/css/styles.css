@@ -325,6 +325,11 @@
       background: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%);
     }
 
+    .intro-contribution {
+      max-width: 58rem;
+      margin-inline: auto;
+    }
+
     .contribution-visual {
       display: grid;
       place-items: center;
